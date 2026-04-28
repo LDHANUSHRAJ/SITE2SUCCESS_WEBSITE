@@ -11,7 +11,50 @@
     <link rel="stylesheet" href="../../assets/css/pages.css">
     <style>
         .sd-hero{padding:8rem 2rem 3rem;max-width:1200px;margin:0 auto}.sd-bc{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;font-size:.875rem;color:var(--gray-400)}.sd-bc a{color:var(--gray-400);transition:color .2s}.sd-bc a:hover{color:var(--coral)}.sd-bc svg{width:14px;height:14px;opacity:.5}.sd-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:1.25rem}.sd-badge.ai{background:rgba(74,144,217,.1);color:#4A90D9}.sd-badge.auto{background:rgba(40,200,64,.1);color:#28C840}.sd-badge.web{background:rgba(255,107,74,.1);color:var(--coral)}.sd-dot{width:8px;height:8px;border-radius:50%}.sd-badge.ai .sd-dot{background:#4A90D9}.sd-badge.auto .sd-dot{background:#28C840}.sd-badge.web .sd-dot{background:var(--coral)}.sd-hero h1{font-size:2.75rem;font-weight:800;color:var(--navy-dark);line-height:1.15;margin-bottom:1rem}.sd-hero .sd-sub{font-size:1.2rem;color:var(--gray-500);line-height:1.7;max-width:700px;margin-bottom:2rem}.sd-btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2rem;background:var(--gradient-primary);color:#fff;border-radius:100px;font-weight:700;font-size:1rem;transition:all .3s;text-decoration:none}.sd-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,107,74,.35)}.sd-content{max-width:1200px;margin:0 auto;padding:0 2rem 4rem;display:grid;grid-template-columns:2fr 1fr;gap:3rem}.sd-main h2{font-size:1.5rem;font-weight:800;color:var(--navy-dark);margin-bottom:1rem}.sd-main p{font-size:1.0625rem;color:var(--gray-500);line-height:1.85;margin-bottom:1.25rem}.sd-features{list-style:none;padding:0;margin:1.5rem 0 2rem}.sd-features li{padding:.65rem 0;color:var(--gray-500);font-size:1rem;display:flex;align-items:flex-start;gap:.75rem;line-height:1.6}.sd-features li svg{color:var(--coral);flex-shrink:0;margin-top:4px}.sd-sidebar{display:flex;flex-direction:column;gap:1.5rem}.sd-card{background:#fff;border-radius:20px;padding:1.75rem;border:1px solid rgba(0,0,0,.05);box-shadow:0 4px 20px rgba(0,0,0,.03)}.sd-card h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-400);font-weight:700;margin-bottom:1rem}.sd-item{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:.95rem}.sd-item:last-child{border-bottom:none}.sd-item .label{color:var(--gray-400)}.sd-item .value{color:var(--navy-dark);font-weight:600}.sd-tags{display:flex;flex-wrap:wrap;gap:.5rem}.sd-tags span{padding:.35rem .85rem;background:var(--gray-50);border-radius:8px;font-size:.85rem;color:var(--gray-500);font-weight:500}.sd-cta{max-width:1200px;margin:0 auto 4rem;padding:0 2rem}.sd-cta-card{background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:24px;padding:3rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}.sd-cta-card h2{color:#fff;font-size:1.75rem;font-weight:800;margin-bottom:.5rem}.sd-cta-card p{color:rgba(255,255,255,.65);font-size:1rem}@media(max-width:768px){.sd-hero h1{font-size:2rem}.sd-content{grid-template-columns:1fr}.sd-cta-card{flex-direction:column;text-align:center}}
-    </style>
+    
+        /* ── Mobile Nav (shared) ── */
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-20px);
+                width: calc(100% - 48px);
+                max-width: 400px;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.5rem;
+                background: rgba(255,255,255,0.97);
+                backdrop-filter: blur(20px) saturate(180%);
+                -webkit-backdrop-filter: blur(20px) saturate(180%);
+                border-radius: 24px;
+                border: 1px solid rgba(255,255,255,0.6);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+                z-index: 999;
+            }
+            .nav-links.mobile-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateX(-50%) translateY(0);
+            }
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                padding: 0.875rem 1.25rem;
+            }
+            .menu-toggle {
+                display: flex !important;
+            }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        }
+        </style>
 </head>
 <body>
     <nav class="navbar">

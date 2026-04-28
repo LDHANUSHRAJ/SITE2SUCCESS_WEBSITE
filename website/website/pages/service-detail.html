@@ -55,7 +55,50 @@
             .sd-content { grid-template-columns: 1fr; }
             .sd-cta-card { flex-direction: column; text-align: center; }
         }
-    </style>
+    
+        /* ── Mobile Nav (shared) ── */
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-20px);
+                width: calc(100% - 48px);
+                max-width: 400px;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.5rem;
+                background: rgba(255,255,255,0.97);
+                backdrop-filter: blur(20px) saturate(180%);
+                -webkit-backdrop-filter: blur(20px) saturate(180%);
+                border-radius: 24px;
+                border: 1px solid rgba(255,255,255,0.6);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+                z-index: 999;
+            }
+            .nav-links.mobile-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateX(-50%) translateY(0);
+            }
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                padding: 0.875rem 1.25rem;
+            }
+            .menu-toggle {
+                display: flex !important;
+            }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        }
+        </style>
 </head>
 <body>
     <nav class="navbar">
