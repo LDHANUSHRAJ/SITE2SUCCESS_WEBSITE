@@ -1,0 +1,12 @@
+{
+  "name": "site2success",
+  "version": "1.0.0",
+  "description": "Site2Success Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve website/website"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
