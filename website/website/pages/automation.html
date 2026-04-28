@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIRA — AI-Powered Customer Engagement | Site2Success</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <style>
+        :root { --kira-teal: #2dd4bf; --kira-cyan: #06b6d4; --kira-dark: #0f172a; }
+
+        .kira-hero { min-height: 90vh; display: flex; align-items: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); position: relative; overflow: hidden; padding: 8rem 2rem 4rem; }
+        .kira-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(45,212,191,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(6,182,212,0.06) 0%, transparent 50%); animation: heroGlow 8s ease-in-out infinite alternate; }
+        @keyframes heroGlow { 0% { transform: translate(0,0); } 100% { transform: translate(-2%,2%); } }
+        .kira-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+        .kira-hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border: 1px solid rgba(45,212,191,0.3); border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--kira-teal); background: rgba(45,212,191,0.08); margin-bottom: 1.5rem; }
+        .kira-hero-badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--kira-teal); animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .kira-hero h1 { font-size: 3.25rem; font-weight: 800; color: white; line-height: 1.12; margin-bottom: 1.25rem; }
+        .kira-hero h1 span { background: linear-gradient(135deg, var(--kira-teal), var(--kira-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .kira-hero .hero-desc { font-size: 1.125rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 2rem; }
+        .kira-hero-logo { text-align: center; }
+        .kira-hero-logo img { max-width: 380px; width: 100%; filter: drop-shadow(0 0 40px rgba(45,212,191,0.2)); animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        .kira-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2rem; background: linear-gradient(135deg, var(--kira-teal), var(--kira-cyan)); color: var(--kira-dark); border-radius: 100px; font-weight: 700; font-size: 1rem; transition: all 0.3s; text-decoration: none; border: none; cursor: pointer; }
+        .kira-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(45,212,191,0.35); }
+
+        .kira-section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+        .kira-section h2 { font-size: 2rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 1rem; }
+        .kira-section h2 span { color: var(--kira-teal); }
+        .kira-section .section-desc { font-size: 1.0625rem; color: var(--gray-500); line-height: 1.85; margin-bottom: 1.5rem; max-width: 800px; }
+
+        .kira-what { background: var(--gray-50); }
+        .kira-what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .kira-what-content h2 { margin-bottom: 1.25rem; }
+        .kira-what-content p { font-size: 1.0625rem; color: var(--gray-500); line-height: 1.85; margin-bottom: 1rem; }
+        .kira-channels { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+        .kira-channel { padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; }
+        .kira-channel.web { background: rgba(76,175,80,0.1); color: #4CAF50; }
+        .kira-channel.wa { background: rgba(37,211,102,0.1); color: #25D366; }
+        .kira-channel.ig { background: rgba(225,48,108,0.1); color: #E1306C; }
+        .kira-channel.fb { background: rgba(24,119,242,0.1); color: #1877F2; }
+        .kira-flow-img { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+        .kira-flow-img img { width: 100%; display: block; }
+
+        .kira-outbound { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 5rem 0; }
+        .kira-outbound h2 { color: white; }
+        .kira-outbound h2 span { background: linear-gradient(135deg, var(--kira-teal), var(--kira-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .kira-outbound .section-desc { color: rgba(255,255,255,0.65); }
+        .kira-outbound-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border: 1px solid rgba(255,107,74,0.4); border-radius: 100px; font-size: 0.75rem; font-weight: 700; color: #ff6b4a; background: rgba(255,107,74,0.1); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .kira-outbound-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-top: 2.5rem; }
+        .kira-ob-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.75rem; transition: all 0.3s; }
+        .kira-ob-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(45,212,191,0.3); transform: translateY(-4px); }
+        .kira-ob-card .ob-step { font-size: 0.75rem; font-weight: 700; color: var(--kira-teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+        .kira-ob-card h3 { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+        .kira-ob-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+        .kira-quote { margin-top: 2.5rem; padding: 1.5rem 2rem; background: rgba(45,212,191,0.06); border-left: 3px solid var(--kira-teal); border-radius: 0 12px 12px 0; font-size: 1rem; color: rgba(255,255,255,0.75); font-style: italic; line-height: 1.7; }
+
+        .kira-form-section { background: linear-gradient(135deg, rgba(45,212,191,0.03), rgba(6,182,212,0.03)); padding: 5rem 0; }
+        .kira-form-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .kira-form-left h2 { font-size: 2.25rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 1rem; }
+        .kira-form-left h2 span { color: var(--kira-teal); }
+        .kira-form-left p { font-size: 1.0625rem; color: var(--gray-500); line-height: 1.8; margin-bottom: 1.5rem; }
+        .kira-perks { list-style: none; padding: 0; }
+        .kira-perks li { padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem; color: var(--gray-500); font-size: 0.95rem; }
+        .kira-perks li svg { color: var(--kira-teal); flex-shrink: 0; }
+        .kira-form-card { background: white; border-radius: 24px; padding: 2.5rem; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+        .kira-form-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.5rem; }
+        .kira-form-card .form-sub { font-size: 0.875rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+        .kira-form-group { margin-bottom: 1.25rem; }
+        .kira-form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-dark); margin-bottom: 0.4rem; }
+        .kira-form-group input, .kira-form-group select, .kira-form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s; background: var(--gray-50); }
+        .kira-form-group input:focus, .kira-form-group select:focus, .kira-form-group textarea:focus { outline: none; border-color: var(--kira-teal); box-shadow: 0 0 0 3px rgba(45,212,191,0.1); }
+        .kira-form-group textarea { resize: vertical; min-height: 80px; }
+        .kira-submit { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--kira-teal), var(--kira-cyan)); color: var(--kira-dark); border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+        .kira-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,212,191,0.3); }
+
+        @media (max-width: 768px) {
+            .kira-hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .kira-hero h1 { font-size: 2.25rem; }
+            .kira-what-grid { grid-template-columns: 1fr; }
+            .kira-outbound-grid { grid-template-columns: 1fr 1fr; }
+            .kira-form-wrapper { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) { .kira-outbound-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="nav-logo"><img src="../assets/images/logo.png" alt="Site2Success" style="height:48px;width:auto;border-radius:0"></a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item">Home</a>
+            <a href="services.html" class="nav-item">Services</a>
+            <a href="automation.html" class="nav-item active">KIRA<span class="early-tag">Early Access</span></a>
+            <a href="internships.html" class="nav-item">Internships</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="kira-hero">
+        <div class="kira-hero-inner">
+            <div>
+                <div class="kira-hero-badge"><div class="pulse"></div>Our First Product</div>
+                <h1>Meet <span>KIRA</span> — Your AI Customer Engagement Engine</h1>
+                <p class="hero-desc">An AI-powered customer engagement and lead generation system that sits across your customer touchpoints — website, WhatsApp, Instagram, Facebook — and handles conversations, captures leads, and books appointments automatically, 24/7.</p>
+                <a href="#early-access" class="kira-btn">
+                    Get Early Access
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="kira-hero-logo">
+                <img src="../assets/images/kira-logo.png" alt="KIRA AI" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- What is KIRA -->
+    <section class="kira-what">
+        <div class="kira-section">
+            <div class="kira-what-grid">
+                <div class="kira-what-content">
+                    <h2>What is <span>KIRA</span>?</h2>
+                    <p>KIRA is an AI engagement platform that businesses train on their own data — website content, PDFs, FAQs, service menus — and deploy across multiple customer touchpoints. It handles customer queries, captures leads, books appointments, and manages follow-ups — without human intervention.</p>
+                    <p>The platform is trained on your own business data, so it responds like a knowledgeable staff member, not a generic bot. Everything from lead tracking to analytics to multi-channel management lives in a single dashboard.</p>
+                    <div class="kira-channels">
+                        <span class="kira-channel web">🌐 Website Chat</span>
+                        <span class="kira-channel wa">💬 WhatsApp</span>
+                        <span class="kira-channel ig">📸 Instagram DMs</span>
+                        <span class="kira-channel fb">👍 Facebook Msgs</span>
+                    </div>
+                </div>
+                <div class="kira-flow-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#1e293b);padding:3rem;border-radius:24px;">
+                    <img src="../assets/images/kira-logo.png" alt="KIRA AI" style="max-width:320px;width:100%;filter:drop-shadow(0 0 40px rgba(45,212,191,0.25));" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outbound Engine -->
+    <section class="kira-outbound">
+        <div class="kira-section">
+            <div class="kira-outbound-badge">🚀 New Feature</div>
+            <h2>Outbound <span>Engagement Engine</span></h2>
+            <p class="section-desc">Instead of waiting for customers to come to you, KIRA actively goes where your potential customers are already having conversations online. KIRA monitors platforms like Reddit, LinkedIn, Facebook, and X/Twitter for discussions relevant to your business — and replies with helpful, branded responses that bring them to your door.</p>
+
+            <div class="kira-outbound-grid">
+                <div class="kira-ob-card">
+                    <div class="ob-step">Step 1</div>
+                    <h3>Detects Intent</h3>
+                    <p>KIRA scans Reddit, LinkedIn, Facebook posts, and X/Twitter threads for questions and discussions relevant to your business.</p>
+                </div>
+                <div class="kira-ob-card">
+                    <div class="ob-step">Step 2</div>
+                    <h3>Replies Smartly</h3>
+                    <p>Crafts a helpful, branded response with a natural call to action — not spammy, genuinely useful to the person asking.</p>
+                </div>
+                <div class="kira-ob-card">
+                    <div class="ob-step">Step 3</div>
+                    <h3>Drives to Site</h3>
+                    <p>Includes a link to your landing page or WhatsApp CTA, bringing interested prospects directly to your business.</p>
+                </div>
+                <div class="kira-ob-card">
+                    <div class="ob-step">Step 4</div>
+                    <h3>Stores Lead</h3>
+                    <p>Logs who they are, which platform, what they asked, and their contact details — all structured in your KIRA dashboard.</p>
+                </div>
+            </div>
+
+            <div class="kira-quote">Think of it as having a social media SDR running 24/7 — finding people mid-thought, responding at exactly the right moment, and delivering them to your door already informed and interested.</div>
+        </div>
+    </section>
+
+    <!-- Early Access Form -->
+    <section class="kira-form-section" id="early-access">
+        <div class="kira-form-wrapper">
+            <div class="kira-form-left">
+                <h2>Get <span>Early Access</span> to KIRA</h2>
+                <p>Be among the first businesses to experience KIRA's AI-powered customer engagement. Early access members get priority onboarding, discounted pricing, and direct access to our product team.</p>
+                <ul class="kira-perks">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority onboarding &amp; setup</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Early adopter pricing — locked in</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Direct access to the product team</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> First to get new features &amp; updates</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Free outbound engine beta access</li>
+                </ul>
+            </div>
+            <div class="kira-form-card">
+                <h3>Request Early Access</h3>
+                <p class="form-sub">Fill in your details and we'll reach out within 24 hours.</p>
+                <form id="kiraForm" onsubmit="submitKiraForm(event)">
+                    <div class="kira-form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="kira-form-group">
+                        <label>Business Email *</label>
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="kira-form-group">
+                        <label>Phone / WhatsApp *</label>
+                        <input type="tel" name="phone" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div class="kira-form-group">
+                        <label>Business Name</label>
+                        <input type="text" name="business" placeholder="Your company name">
+                    </div>
+                    <div class="kira-form-group">
+                        <label>Industry</label>
+                        <select name="industry">
+                            <option value="">Select your industry</option>
+                            <option>Retail & E-commerce</option>
+                            <option>Healthcare & Clinics</option>
+                            <option>Real Estate</option>
+                            <option>Education & Coaching</option>
+                            <option>SaaS & Technology</option>
+                            <option>Financial Services</option>
+                            <option>Hospitality & F&B</option>
+                            <option>Professional Services</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="kira-form-group">
+                        <label>What interests you most?</label>
+                        <textarea name="interest" placeholder="Tell us what you'd like KIRA to do for your business..."></textarea>
+                    </div>
+                    <button type="submit" class="kira-submit">Request Early Access →</button>
+                </form>
+                <div id="formSuccess" style="display:none;text-align:center;padding:2rem 0;">
+                    <div style="font-size:3rem;margin-bottom:1rem;">🎉</div>
+                    <h3 style="color:var(--navy-dark);margin-bottom:0.5rem;">You're on the list!</h3>
+                    <p style="color:var(--gray-400);">We'll reach out within 24 hours to get you started.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/main.js"></script>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    // ── EmailJS Config ──────────────────────────────────────────
+    // SETUP STEPS (one-time, takes 5 min):
+    // 1. Go to https://www.emailjs.com and sign up (free)
+    // 2. Add a Gmail service → connect site2successs@gmail.com
+    //    Copy the Service ID and paste below as EMAILJS_SERVICE_ID
+    // 3. Create an Email Template with these variables:
+    //    {{from_name}}, {{from_email}}, {{phone}}, {{business}},
+    //    {{industry}}, {{interest}}, {{submitted_at}}
+    //    Set "To Email" = site2successs@gmail.com
+    //    Copy the Template ID and paste below as EMAILJS_TEMPLATE_ID
+    // 4. Go to Account → API Keys, copy your Public Key
+    //    Paste below as EMAILJS_PUBLIC_KEY
+    // ────────────────────────────────────────────────────────────
+    const EMAILJS_SERVICE_ID  = 'service_t1nq12y';
+    const EMAILJS_TEMPLATE_ID = 'template_m8n2lnc';
+    const EMAILJS_PUBLIC_KEY  = 'eT4xOw3BfRgJEfKXU';
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    function submitKiraForm(e) {
+        e.preventDefault();
+        const form = document.getElementById('kiraForm');
+        const btn  = form.querySelector('.kira-submit');
+        const data = new FormData(form);
+
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        const templateParams = {
+            from_name    : data.get('name')     || '—',
+            from_email   : data.get('email')    || '—',
+            phone        : data.get('phone')    || '—',
+            business     : data.get('business') || '—',
+            industry     : data.get('industry') || '—',
+            interest     : data.get('interest') || '—',
+            submitted_at : new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        };
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(function () {
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            })
+            .catch(function (err) {
+                console.error('EmailJS error:', err);
+                btn.disabled = false;
+                btn.textContent = 'Request Early Access →';
+                alert('Something went wrong. Please try again or contact us directly.');
+            });
+    }
+    </script>
+</body>
+</html>

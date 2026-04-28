@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Site2Success</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <style>
+        /* ===== FEATURED PROJECT HIGHLIGHT ===== */
+        .featured-project {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+        .featured-card {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 420px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+        }
+        .featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        .featured-content h2 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        .featured-content .client-name {
+            color: var(--orange);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .featured-content p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .featured-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .featured-tags span {
+            padding: 0.35rem 0.85rem;
+            background: rgba(255,107,74,0.15);
+            border: 1px solid rgba(255,107,74,0.25);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--orange);
+        }
+        .featured-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        .featured-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,74,0.35);
+        }
+        .featured-preview {
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+            transform: scale(1);
+            transform-origin: top left;
+        }
+        .featured-preview-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,26,46,0.3) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        /* ===== PROJECT CARDS GRID ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .project-card {
+            background: var(--white-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .project-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-radius: 0;
+        }
+        .project-card:hover .project-card-image {
+            transform: scale(1.05);
+        }
+        .project-card-image-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .project-card-body {
+            padding: 1.5rem;
+        }
+        .project-card-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+        }
+        .project-card-body p {
+            color: var(--gray-500);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .project-card-tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+        .project-card-tags span {
+            padding: 0.25rem 0.7rem;
+            background: rgba(255,69,82,0.06);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--coral);
+            font-weight: 500;
+        }
+
+        /* ===== PROJECT DETAIL MODAL ===== */
+        .project-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .project-modal {
+            background: white;
+            border-radius: 28px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.25);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .project-modal-overlay.active .project-modal {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .modal-close:hover {
+            background: rgba(255,107,74,0.1);
+            color: var(--coral);
+        }
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+        }
+        .modal-header h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            margin-bottom: 0.25rem;
+        }
+        .modal-header .modal-client {
+            color: var(--coral);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .modal-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+            margin-bottom: 1.25rem;
+        }
+        .modal-tags span {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,107,74,0.08);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--coral);
+            font-weight: 500;
+        }
+        .modal-description {
+            padding: 0 2rem 1.5rem;
+            color: var(--gray-500);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .modal-iframe-wrap {
+            margin: 0 2rem 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: relative;
+            height: 400px;
+            background: var(--gray-100);
+        }
+        .modal-iframe-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .modal-iframe-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            background: var(--gray-50);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .modal-iframe-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .modal-iframe-dot:nth-child(1) { background: #FF5F57; }
+        .modal-iframe-dot:nth-child(2) { background: #FFBD2E; }
+        .modal-iframe-dot:nth-child(3) { background: #28C840; }
+        .modal-iframe-url {
+            flex: 1;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            font-family: monospace;
+        }
+        .modal-visit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0 2rem 2rem;
+            transition: all 0.3s ease;
+        }
+        .modal-visit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,74,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .featured-card { grid-template-columns: 1fr; min-height: auto; }
+            .featured-preview { height: 300px; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .featured-content { padding: 2rem; }
+            .featured-content h2 { font-size: 1.5rem; }
+            .modal-iframe-wrap { height: 280px; }
+            .project-modal { margin: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="home.html" class="nav-logo">
+            <img src="../assets/images/logo.png" alt="Site2Success" style="height: 48px; width: auto; border-radius: 0;">
+        </a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item" data-page="home">Home</a>
+            <a href="services.html" class="nav-item" data-page="services">Services</a>
+            <a href="automation.html" class="nav-item" data-page="automation">KIRA<span class="early-tag">Early Access</span></a>
+            <a href="internships.html" class="nav-item" data-page="internships">Internships</a>
+            <a href="projects.html" class="nav-item active" data-page="projects">Projects</a>
+            <a href="about.html" class="nav-item" data-page="about">About</a>
+            <a href="contact.html" class="nav-item" data-page="contact">Contact</a>
+        </div>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <span class="section-label">Portfolio</span>
+        <h1 class="section-title">Projects That Drive Success</h1>
+        <p class="section-subtitle">Real results for real businesses since October 2024</p>
+    </section>
+
+    <!-- Featured Project: Logeshwaran -->
+    <section class="featured-project">
+        <div class="featured-card" onclick="window.location.href='project-detail.html'">
+            <div class="featured-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Featured Project
+            </div>
+            <div class="featured-content">
+                <div class="client-name">Client: Logeshwaran J</div>
+                <h2>Portfolio Website & Admin Portal</h2>
+                <p>A fully functional portfolio website with an integrated admin portal — featuring user authentication, blog commenting, research paper management, chat system, full CRUD control, and LinkedIn integration.</p>
+                <div class="featured-tags">
+                    <span>Full-Stack</span>
+                    <span>Admin Portal</span>
+                    <span>Authentication</span>
+                    <span>Blog & Research</span>
+                </div>
+                <div class="featured-btn">
+                    View Project Details
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </div>
+            <div class="featured-preview">
+                <div class="featured-preview-overlay"></div>
+                <iframe src="https://logeshwaranj.com/" loading="lazy" title="Logeshwaran Portfolio Preview" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Projects Grid -->
+    <section class="section" style="padding-top: 0;">
+        <div class="section-header">
+            <span class="section-label">All Projects</span>
+            <h2 class="section-title">More Work We're Proud Of</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" onclick="openProjectModal('ecommerce')">
+                <div class="project-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=70" alt="E-Commerce Platform" class="project-card-image" loading="lazy">
+                </div>
+                <div class="project-card-body">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Complete automation system reducing manual work by 70%.</p>
+                    <div class="project-card-tags"><span>Automation</span><span>E-commerce</span></div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openProjectModal('healthcare')">
+                <div class="project-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=70" alt="Healthcare ERP" class="project-card-image" loading="lazy">
+                </div>
+                <div class="project-card-body">
+                    <h3>Healthcare ERP</h3>
+                    <p>AI-powered patient management with predictive analytics.</p>
+                    <div class="project-card-tags"><span>AI/ML</span><span>Healthcare</span></div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openProjectModal('realestate')">
+                <div class="project-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=70" alt="Real Estate CRM" class="project-card-image" loading="lazy">
+                </div>
+                <div class="project-card-body">
+                    <h3>Real Estate CRM</h3>
+                    <p>WhatsApp automation increasing leads by 45%.</p>
+                    <div class="project-card-tags"><span>CRM</span><span>WhatsApp API</span></div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openProjectModal('finance')">
+                <div class="project-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=70" alt="Financial Dashboard" class="project-card-image" loading="lazy">
+                </div>
+                <div class="project-card-body">
+                    <h3>Financial Dashboard</h3>
+                    <p>Real-time analytics platform for tracking investments and KPIs.</p>
+                    <div class="project-card-tags"><span>Dashboard</span><span>Analytics</span></div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openProjectModal('hr')">
+                <div class="project-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=70" alt="HR Management" class="project-card-image" loading="lazy">
+                </div>
+                <div class="project-card-body">
+                    <h3>HR Management System</h3>
+                    <p>Complete HR solution with payroll automation.</p>
+                    <div class="project-card-tags"><span>ERP</span><span>HR Tech</span></div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openProjectModal('banking')">
+                <div class="project-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=70" alt="Mobile Banking" class="project-card-image" loading="lazy">
+                </div>
+                <div class="project-card-body">
+                    <h3>Mobile Banking App</h3>
+                    <p>Cross-platform app with biometric authentication.</p>
+                    <div class="project-card-tags"><span>Mobile</span><span>Fintech</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section" style="background: linear-gradient(180deg, transparent 0%, rgba(255,69,82,0.02) 50%, transparent 100%);">
+        <div class="section-header">
+            <span class="section-label">Impact</span>
+            <h2 class="section-title">Our Impact in Numbers</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card"><span class="stat-number">25+</span><span class="stat-label">Projects Delivered</span></div>
+            <div class="stat-card"><span class="stat-number">15+</span><span class="stat-label">Enterprise Clients</span></div>
+            <div class="stat-card"><span class="stat-number">100%</span><span class="stat-label">Client Satisfaction</span></div>
+            <div class="stat-card"><span class="stat-number">40%</span><span class="stat-label">Avg. Efficiency Gain</span></div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-header">
+            <span class="section-label">Your Project</span>
+            <h2 class="section-title">Have a Project in Mind?</h2>
+            <p class="section-subtitle">Let's discuss how we can help bring your vision to life</p>
+            <a href="contact.html" class="btn btn-primary btn-large mt-4">
+                Start a Project
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div class="project-modal-overlay" id="projectModal">
+        <div class="project-modal">
+            <button class="modal-close" onclick="closeProjectModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <div class="modal-client" id="modalClient"></div>
+            </div>
+            <div class="modal-tags" id="modalTags"></div>
+            <div class="modal-description" id="modalDesc"></div>
+            <div id="modalIframeContainer"></div>
+            <a href="#" class="modal-visit-btn" id="modalVisitBtn" target="_blank" style="display:none;">
+                Visit Live Site
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        const projectsData = {
+            logeshwaran: {
+                title: 'Personal Portfolio Website',
+                client: 'Logeshwaran J',
+                tags: ['Portfolio', 'Web Design', 'Responsive', 'Modern UI', 'Animations'],
+                desc: 'A premium, modern portfolio website designed and developed for Logeshwaran J. Features smooth scroll animations, responsive design, and a sleek dark aesthetic that showcases his professional journey, skills, and projects beautifully.',
+                url: 'https://logeshwaranj.com/',
+                hasIframe: true
+            },
+            ecommerce: {
+                title: 'E-Commerce Platform',
+                client: 'Enterprise Client',
+                tags: ['Automation', 'E-commerce', 'Inventory Management'],
+                desc: 'Complete automation system reducing manual work by 70%. Integrated inventory management, order processing, and customer notifications into a seamless platform.',
+                url: null, hasIframe: false
+            },
+            healthcare: {
+                title: 'Healthcare ERP',
+                client: 'Healthcare Provider',
+                tags: ['AI/ML', 'Healthcare', 'Predictive Analytics'],
+                desc: 'AI-powered patient management system with predictive analytics for treatment recommendations and resource optimization across multiple departments.',
+                url: null, hasIframe: false
+            },
+            realestate: {
+                title: 'Real Estate CRM',
+                client: 'Real Estate Agency',
+                tags: ['CRM', 'WhatsApp API', 'Lead Management'],
+                desc: 'WhatsApp automation increasing leads by 45%. Integrated property management with automated follow-ups, scheduling, and lead nurturing pipelines.',
+                url: null, hasIframe: false
+            },
+            finance: {
+                title: 'Financial Dashboard',
+                client: 'Financial Services Firm',
+                tags: ['Dashboard', 'Analytics', 'Real-time Data'],
+                desc: 'Real-time analytics platform for tracking investments, expenses, and financial KPIs with automated reporting and customizable dashboards.',
+                url: null, hasIframe: false
+            },
+            hr: {
+                title: 'HR Management System',
+                client: 'Corporate Client',
+                tags: ['ERP', 'HR Tech', 'Payroll'],
+                desc: 'Complete HR solution with attendance tracking, payroll automation, and performance management modules serving 500+ employees.',
+                url: null, hasIframe: false
+            },
+            banking: {
+                title: 'Mobile Banking App',
+                client: 'Fintech Startup',
+                tags: ['Mobile', 'Fintech', 'Security'],
+                desc: 'Cross-platform mobile application with secure transactions, biometric authentication, and real-time notifications for seamless banking.',
+                url: null, hasIframe: false
+            }
+        };
+
+        function openProjectModal(id) {
+            const p = projectsData[id];
+            if (!p) return;
+            document.getElementById('modalTitle').textContent = p.title;
+            document.getElementById('modalClient').textContent = p.client ? 'Client: ' + p.client : '';
+            document.getElementById('modalTags').innerHTML = p.tags.map(t => '<span>' + t + '</span>').join('');
+            document.getElementById('modalDesc').textContent = p.desc;
+
+            const iframeContainer = document.getElementById('modalIframeContainer');
+            const visitBtn = document.getElementById('modalVisitBtn');
+
+            if (p.hasIframe && p.url) {
+                iframeContainer.innerHTML = `
+                    <div class="modal-iframe-wrap">
+                        <div class="modal-iframe-bar">
+                            <div class="modal-iframe-dot"></div>
+                            <div class="modal-iframe-dot"></div>
+                            <div class="modal-iframe-dot"></div>
+                            <div class="modal-iframe-url">${p.url}</div>
+                        </div>
+                        <iframe src="${p.url}" loading="lazy" title="${p.title}" sandbox="allow-scripts allow-same-origin"></iframe>
+                    </div>`;
+                visitBtn.href = p.url;
+                visitBtn.style.display = 'inline-flex';
+            } else {
+                iframeContainer.innerHTML = '';
+                visitBtn.style.display = 'none';
+            }
+
+            const overlay = document.getElementById('projectModal');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const overlay = document.getElementById('projectModal');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            // Clean up iframe
+            document.getElementById('modalIframeContainer').innerHTML = '';
+        }
+
+        // Close on overlay click
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) closeProjectModal();
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeProjectModal();
+        });
+    </script>
+</body>
+</html>

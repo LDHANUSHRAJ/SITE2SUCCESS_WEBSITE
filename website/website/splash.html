@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site2Success - Loading</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COLORS */
+:root {
+    --coral: #FF4552;
+    --orange: #FF7A45;
+    --amber: #FFAF66;
+    --navy-dark: #0f0f1a;
+    --gray-dark: #6c757d;
+}
+
+/* BODY */
+body {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* BACKGROUND */
+.bg-3d {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(255,69,82,.03), transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255,122,69,.03), transparent 50%),
+        linear-gradient(180deg, #f8f9fa, #f8f9fa, #f0f2f5);
+}
+
+/* FLOATING SHAPES */
+.shape {
+    position: absolute;
+    background: rgba(255,255,255,.9);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.08);
+    animation: float 6s ease-in-out infinite;
+}
+
+/* INDIVIDUAL SHAPES */
+.shape-1 { width: 200px; height: 200px; top: 10%; left: 10%; }
+.shape-2 { width: 120px; height: 120px; top: 60%; left: 15%; border-radius: 50%; animation-delay: 1s; }
+.shape-3 { width: 180px; height: 120px; top: 20%; right: 15%; animation-delay: 2s; }
+.shape-4 { width: 100px; height: 100px; bottom: 20%; right: 20%; border-radius: 50%; animation-delay: 1.5s; }
+.shape-5 { width: 150px; height: 150px; bottom: 30%; left: 5%; animation-delay: .5s; }
+.shape-6 { width: 80px; height: 200px; top: 40%; right: 5%; animation-delay: 2.5s; }
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+}
+
+/* SPLASH */
+.splash-container {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-animation {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 80px;
+}
+
+.logo-bar {
+    width: 14px;
+    border-radius: 7px;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    animation: barGrow 1s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+.logo-bar:nth-child(1) { height: 40px; background: #FF4552; }
+.logo-bar:nth-child(2) { height: 70px; background: #FF7A45; animation-delay: .15s; }
+.logo-bar:nth-child(3) { height: 55px; background: #FFAF66; animation-delay: .3s; }
+
+@keyframes barGrow {
+    to { transform: scaleY(1); }
+}
+
+/* BRAND NAME */
+.brand-name {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+    animation: fadeUp .8s ease forwards .5s;
+    opacity: 0;
+}
+
+.brand-name span {
+    background: linear-gradient(135deg, var(--coral), var(--orange), var(--amber));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* LOADING BAR */
+.loading-container {
+    margin-top: 3rem;
+}
+
+.loading-bar {
+    width: 220px;
+    height: 4px;
+    background: rgba(0,0,0,.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--coral), var(--orange), var(--amber));
+    animation: load 2.5s ease forwards 1s;
+}
+
+@keyframes load {
+    to { width: 100%; }
+}
+
+/* CLICK HINT */
+.click-hint {
+    position: absolute;
+    bottom: 10%;
+    font-size: .9rem;
+    color: var(--gray-dark);
+    opacity: .8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-3d">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+    <div class="shape shape-5"></div>
+    <div class="shape shape-6"></div>
+</div>
+
+<div class="splash-container" id="splash">
+    <div class="logo-container">
+        <div class="logo-animation">
+            <div class="logo-bar"></div>
+            <div class="logo-bar"></div>
+            <div class="logo-bar"></div>
+        </div>
+        <h1 class="brand-name">Site<span>2</span>Success</h1>
+    </div>
+
+    <div class="loading-container">
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <div class="click-hint">Click or scroll to continue</div>
+</div>
+
+<script>
+setTimeout(() => {
+    window.location.href = 'pages/home.html';
+}, 4500);
+</script>
+
+</body>
+</html>

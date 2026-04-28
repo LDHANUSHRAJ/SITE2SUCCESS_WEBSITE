@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site2Success</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* 3 Pillars Animation */
+        .pillars-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+
+        .pillar {
+            width: 25px;
+            border-radius: 12px;
+            transform-origin: bottom;
+            opacity: 0;
+            transform: scaleY(0);
+        }
+
+        /* Brand Colors */
+        .pillar:nth-child(1) {
+            height: 60px;
+            background: #FF4552;
+            /* Red-ish */
+            animation: riseUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        .pillar:nth-child(2) {
+            height: 100px;
+            background: #FF7A45;
+            /* Orange */
+            animation: riseUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.4s;
+        }
+
+        .pillar:nth-child(3) {
+            height: 80px;
+            background: #FFAF66;
+            /* Light Orange */
+            animation: riseUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes riseUp {
+            0% {
+                opacity: 0;
+                transform: scaleY(0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+
+        /* Text Animation */
+        .brand-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            /* Navy Dark from main.css */
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="splash-container">
+        <img src="assets/images/logo.png" alt="Site2Success" style="height: 120px; width: auto; opacity: 0; animation: fadeUp 1s ease forwards; animation-delay: 0.3s; border-radius: 0;">
+    </div>
+
+    <script>
+        // Redirect after animation (approx 2.5 seconds total)
+        setTimeout(() => {
+            window.location.href = 'pages/home.html';
+        }, 2500);
+    </script>
+</body>
+
+</html>

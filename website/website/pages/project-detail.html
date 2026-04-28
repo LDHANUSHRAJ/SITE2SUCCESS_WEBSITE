@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logeshwaran J — Portfolio & Admin Portal | Site2Success</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <style>
+        .detail-hero {
+            padding: 8rem 2rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .detail-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+        .detail-breadcrumb a {
+            color: var(--gray-400);
+            transition: color 0.2s;
+        }
+        .detail-breadcrumb a:hover { color: var(--coral); }
+        .detail-breadcrumb svg { width: 14px; height: 14px; opacity: 0.5; }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .detail-header-left h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.15;
+        }
+        .detail-header-left .detail-client {
+            font-size: 1.125rem;
+            color: var(--coral);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .detail-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .detail-tags span {
+            padding: 0.4rem 1rem;
+            background: rgba(255,107,74,0.08);
+            border: 1px solid rgba(255,107,74,0.15);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--coral);
+            font-weight: 500;
+        }
+        .detail-visit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .detail-visit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255,107,74,0.35);
+        }
+
+        /* Live Preview Browser */
+        .live-preview-section {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+        .browser-frame {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.25rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .browser-dot:nth-child(1) { background: #FF5F57; }
+        .browser-dot:nth-child(2) { background: #FFBD2E; }
+        .browser-dot:nth-child(3) { background: #28C840; }
+        .browser-url-bar {
+            flex: 1;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .browser-url-bar svg {
+            color: #28C840;
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+        .browser-iframe-wrap {
+            height: 550px;
+            background: #fafafa;
+        }
+        .browser-iframe-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Project Info Grid */
+        .project-info-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+        .project-overview h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            margin-bottom: 1.25rem;
+        }
+        .project-overview p {
+            font-size: 1.0625rem;
+            color: var(--gray-500);
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+        .project-overview ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.25rem 0;
+        }
+        .project-overview ul li {
+            padding: 0.6rem 0;
+            color: var(--gray-500);
+            font-size: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            line-height: 1.6;
+        }
+        .project-overview ul li svg {
+            color: var(--coral);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .project-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .sidebar-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.75rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        .sidebar-card h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .sidebar-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            font-size: 0.95rem;
+        }
+        .sidebar-item:last-child { border-bottom: none; }
+        .sidebar-item .label { color: var(--gray-400); }
+        .sidebar-item .value { color: var(--navy-dark); font-weight: 600; }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tech-tags span {
+            padding: 0.35rem 0.85rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        /* CTA Banner */
+        .detail-cta {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+        .detail-cta-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .detail-cta-card h2 {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .detail-cta-card p {
+            color: rgba(255,255,255,0.65);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .detail-header { flex-direction: column; }
+            .detail-header-left h1 { font-size: 2rem; }
+            .project-info-section { grid-template-columns: 1fr; }
+            .browser-iframe-wrap { height: 350px; }
+            .detail-cta-card { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="home.html" class="nav-logo">
+            <img src="../assets/images/logo.png" alt="Site2Success" style="height: 48px; width: auto; border-radius: 0;">
+        </a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item" data-page="home">Home</a>
+            <a href="services.html" class="nav-item" data-page="services">Services</a>
+            <a href="automation.html" class="nav-item" data-page="automation">KIRA<span class="early-tag">Early Access</span></a>
+            <a href="internships.html" class="nav-item" data-page="internships">Internships</a>
+            <a href="projects.html" class="nav-item active" data-page="projects">Projects</a>
+            <a href="about.html" class="nav-item" data-page="about">About</a>
+            <a href="contact.html" class="nav-item" data-page="contact">Contact</a>
+        </div>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="detail-hero">
+        <div class="detail-breadcrumb">
+            <a href="home.html">Home</a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <a href="projects.html">Projects</a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <span style="color: var(--navy-dark); font-weight: 600;">Logeshwaran J</span>
+        </div>
+
+        <!-- Header -->
+        <div class="detail-header">
+            <div class="detail-header-left">
+                <div class="detail-client">Client: Logeshwaran J</div>
+                <h1>Portfolio Website & Admin Portal</h1>
+                <div class="detail-tags">
+                    <span>Full-Stack</span>
+                    <span>Portfolio</span>
+                    <span>Admin Portal</span>
+                    <span>Authentication</span>
+                    <span>Blog & Research</span>
+                    <span>LinkedIn Integration</span>
+                </div>
+            </div>
+            <a href="https://logeshwaranj.com/" target="_blank" class="detail-visit-btn">
+                Visit Live Site
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Live Preview -->
+    <section class="live-preview-section">
+        <div class="browser-frame">
+            <div class="browser-bar">
+                <div class="browser-dots">
+                    <div class="browser-dot"></div>
+                    <div class="browser-dot"></div>
+                    <div class="browser-dot"></div>
+                </div>
+                <div class="browser-url-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    logeshwaranj.com
+                </div>
+            </div>
+            <div class="browser-iframe-wrap">
+                <iframe src="https://logeshwaranj.com/" loading="lazy" title="Logeshwaran Portfolio" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-info-section">
+        <div class="project-overview">
+            <h2>Project Overview</h2>
+            <p>This project was assigned by our client with the objective of developing a fully functional portfolio website along with an integrated admin portal. The portfolio website is designed to showcase his professional profile, including sections such as About Me, experience, education, research work, publications, blogs, collaborators, and contact details.</p>
+            <p>It serves as a comprehensive platform to present all his achievements and contributions, particularly highlighting his research papers and blog posts in an organized and accessible manner.</p>
+            <p>The website includes dynamic features such as user authentication, allowing visitors to sign up and log in to access private research papers. Users can interact with the platform by viewing and commenting on blog posts. A chat/contact system is also integrated, enabling visitors to send messages directly through the website — helping them connect with him easily.</p>
+
+            <h2 style="margin-top: 2rem;">Portfolio Website — Key Features</h2>
+            <ul>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Comprehensive profile sections: About Me, Experience, Education, Research, Publications, Blogs, Collaborators & Contact
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    User authentication — sign up and log in to access private research papers
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Interactive blog section with commenting system for audience engagement
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Integrated chat/contact system for direct visitor communication
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Research section with detailed insights into all completed work
+                </li>
+            </ul>
+
+            <h2 style="margin-top: 2rem;">Admin Portal — Full Control</h2>
+            <ul>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Complete CRUD functionality — Create, Read, Update, Delete all website content
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Publish and manage research papers and blog posts with full editorial control
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    View and manage visitor messages received through the contact system
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    LinkedIn integration — publish content simultaneously on portfolio and LinkedIn
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Edit all portfolio sections in real-time — full control over what to post and when
+                </li>
+            </ul>
+        </div>
+
+        <div class="project-sidebar">
+            <div class="sidebar-card">
+                <h3>Project Details</h3>
+                <div class="sidebar-item">
+                    <span class="label">Client</span>
+                    <span class="value">Logeshwaran J</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="label">Category</span>
+                    <span class="value">Portfolio + Admin</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="label">Duration</span>
+                    <span class="value">2 Weeks</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="label">Status</span>
+                    <span class="value" style="color: #28C840;">✓ Live</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="label">Website</span>
+                    <a href="https://logeshwaranj.com/" target="_blank" class="value" style="color: var(--coral);">logeshwaranj.com</a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Technologies Used</h3>
+                <div class="tech-tags">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>Authentication</span>
+                    <span>REST APIs</span>
+                    <span>CRUD</span>
+                    <span>LinkedIn API</span>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="detail-cta">
+        <div class="detail-cta-card">
+            <div>
+                <h2>Want a Website Like This?</h2>
+                <p>Let's build something amazing for your brand or portfolio.</p>
+            </div>
+            <a href="contact.html" class="detail-visit-btn">
+                Start Your Project
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
