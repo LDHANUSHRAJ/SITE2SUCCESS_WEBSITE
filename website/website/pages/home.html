@@ -799,6 +799,44 @@
             });
         });
     </script>
+
+    <!-- Mobile Nav Script -->
+    <script>
+    (function() {
+        var toggle = document.getElementById('menu-toggle');
+        var links  = document.getElementById('nav-links');
+        var navbar = document.getElementById('navbar');
+        if (!toggle || !links) return;
+
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+            if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Open / close
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggle.classList.toggle('active');
+            links.classList.toggle('mobile-open');
+        });
+
+        // Close on link click
+        links.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                toggle.classList.remove('active');
+                links.classList.remove('mobile-open');
+            });
+        });
+
+        // Close on outside tap
+        document.addEventListener('click', function(e) {
+            if (navbar && !navbar.contains(e.target)) {
+                toggle.classList.remove('active');
+                links.classList.remove('mobile-open');
+            }
+        });
+    })();
+    </script>
 </body>
 
 </html>
