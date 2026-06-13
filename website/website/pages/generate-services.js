@@ -36,6 +36,7 @@ services.forEach(s => {
     <meta name="keywords" content="${s.title}, Site2Success, AI agent, business automation, Bengaluru, India, startup, workflow automation">
     <link rel="canonical" href="https://site2success.in/pages/services/${s.id}.html">
     <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="erB9FH8CbM0SuXc1aqRoS94toNrKQ-dM144Mg-gx-9o">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
