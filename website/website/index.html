@@ -1,130 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site2Success</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site2Success | AI Agents &amp; Automation for Indian Businesses</title>
+<meta name="description" content="Site2Success builds AI agents, chatbots &amp; automation tools for Indian SMBs. Based in Bengaluru. Powered by cutting-edge AI.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://site2success.in/">
 
-        .splash-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+<!-- Open Graph -->
+<meta property="og:title" content="Site2Success | AI Agents &amp; Automation for Indian Businesses">
+<meta property="og:description" content="Site2Success builds AI agents, chatbots &amp; automation tools for Indian SMBs. Based in Bengaluru. Powered by cutting-edge AI.">
+<meta property="og:image" content="assets/images/og-image.png">
+<meta property="og:url" content="https://site2success.in/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Site2Success">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Site2Success | AI Agents &amp; Automation for Indian Businesses">
+<meta name="twitter:description" content="Site2Success builds AI agents, chatbots &amp; automation tools for Indian SMBs. Based in Bengaluru.">
+<meta name="twitter:image" content="assets/images/og-image.png">
 
-        /* 3 Pillars Animation */
-        .pillars-container {
-            display: flex;
-            align-items: flex-end;
-            gap: 12px;
-            height: 120px;
-            margin-bottom: 2rem;
-        }
+<!-- Google Search Console verification placeholder -->
+<meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
 
-        .pillar {
-            width: 25px;
-            border-radius: 12px;
-            transform-origin: bottom;
-            opacity: 0;
-            transform: scaleY(0);
-        }
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 
-        /* Brand Colors */
-        .pillar:nth-child(1) {
-            height: 60px;
-            background: #FF4552;
-            /* Red-ish */
-            animation: riseUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            animation-delay: 0.2s;
-        }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-        .pillar:nth-child(2) {
-            height: 100px;
-            background: #FF7A45;
-            /* Orange */
-            animation: riseUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            animation-delay: 0.4s;
-        }
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .pillar:nth-child(3) {
-            height: 80px;
-            background: #FFAF66;
-            /* Light Orange */
-            animation: riseUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            animation-delay: 0.6s;
-        }
+:root {
+  --coral:  #FF6B4A;
+  --orange: #FF8A5B;
+  --amber:  #FFB088;
+  --bg:     #ffffff;
+  --grid-color: rgba(0,0,0,0.03);
+}
 
-        @keyframes riseUp {
-            0% {
-                opacity: 0;
-                transform: scaleY(0);
-            }
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-            100% {
-                opacity: 1;
-                transform: scaleY(1);
-            }
-        }
+/* ── SKIP BUTTON ── */
+#skip-btn {
+  position: fixed;
+  top: 24px; right: 28px;
+  z-index: 200;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.6);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  display: flex; align-items: center; gap: 6px;
+  opacity: 0;
+  animation: fadeInBtn 0.6s ease 0.8s forwards;
+}
+#skip-btn:hover {
+  background: rgba(0,0,0,0.1);
+  color: #000;
+  border-color: rgba(255,107,74,0.4);
+}
+@keyframes fadeInBtn { to { opacity: 1; } }
 
-        /* Text Animation */
-        .brand-text {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            /* Navy Dark from main.css */
-            letter-spacing: -0.02em;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 1.2s;
-        }
+/* ── ANIMATED GRID BACKGROUND ── */
+#canvas-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
 
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+/* ── GLOWING ORBS ── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+  animation: orbPulse 8s ease-in-out infinite;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,107,74,0.05) 0%, transparent 70%);
+  top: -150px; left: -100px;
+  animation-delay: 0s;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,138,91,0.03) 0%, transparent 70%);
+  bottom: -100px; right: -50px;
+  animation-delay: 3s;
+}
+@keyframes orbPulse {
+  0%,100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+/* ── SPLASH CONTAINER ── */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2rem;
+}
+
+/* ── LOGO IMAGE ── */
+.logo-wrap {
+  opacity: 0;
+  transform: scale(0.88);
+  animation: logoReveal 0.9s cubic-bezier(0.22,1,0.36,1) 0.3s forwards;
+}
+.logo-wrap img {
+  height: clamp(60px, 10vw, 96px);
+  width: auto;
+  display: block;
+  border-radius: 0;
+  opacity: 1 !important; /* override main.css shimmer */
+}
+@keyframes logoReveal {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── BRAND NAME ── */
+.brand-name {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-weight: 800;
+  color: #0A0A0F;
+  letter-spacing: -0.025em;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.7s ease 0.9s forwards;
+  text-align: center;
+}
+.brand-name span {
+  background: linear-gradient(135deg, var(--coral), var(--orange), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── TYPEWRITER TAGLINE ── */
+.tagline-wrap {
+  min-height: 2rem;
+  opacity: 0;
+  animation: fadeInTag 0.5s ease 1.4s forwards;
+}
+.tagline {
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  font-weight: 500;
+  color: rgba(0,0,0,0.7);
+  letter-spacing: 0.01em;
+  font-family: 'Inter', sans-serif;
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--coral);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 0.9s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes fadeInTag { to { opacity: 1; } }
+
+/* ── PROGRESS BAR ── */
+.progress-wrap {
+  width: clamp(200px, 40vw, 320px);
+  opacity: 0;
+  animation: fadeInBar 0.5s ease 1.5s forwards;
+}
+.progress-track {
+  height: 3px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--coral), var(--orange), var(--amber));
+  border-radius: 3px;
+  animation: fillBar 2s cubic-bezier(0.4,0,0.2,1) 1.6s forwards;
+  box-shadow: 0 0 10px rgba(255,107,74,0.3);
+}
+@keyframes fillBar { to { width: 100%; } }
+/* Glow pulse on track */
+.progress-glow {
+  position: absolute;
+  top: -3px; left: 0;
+  width: 60px; height: 9px;
+  background: radial-gradient(ellipse, rgba(255,107,74,0.5) 0%, transparent 70%);
+  animation: glowMove 2s cubic-bezier(0.4,0,0.2,1) 1.6s forwards;
+  border-radius: 50%;
+  filter: blur(4px);
+}
+@keyframes glowMove { to { left: calc(100% - 30px); } }
+@keyframes fadeInBar { to { opacity: 1; } }
+
+/* ── INCUBATION TAG ── */
+.incubation-tag {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInTag 0.5s ease 1.8s forwards;
+}
+
+/* ── PAGE TRANSITION OVERLAY ── */
+#transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+#transition-overlay.fade-out {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .brand-name { font-size: 2rem; }
+  .logo-wrap img { height: 54px; }
+  .splash { gap: 1.75rem; }
+}
+</style>
 </head>
-
 <body>
-    <div class="splash-container">
-        <img src="assets/images/logo.png" alt="Site2Success" style="height: 120px; width: auto; opacity: 0; animation: fadeUp 1s ease forwards; animation-delay: 0.3s; border-radius: 0;">
+
+<!-- Transition overlay for smooth page change -->
+<div id="transition-overlay"></div>
+
+<!-- Skip button -->
+<button id="skip-btn" onclick="navigateToHome()" aria-label="Skip intro">
+  Skip
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <polyline points="13 17 18 12 13 7"></polyline>
+    <polyline points="6 17 11 12 6 7"></polyline>
+  </svg>
+</button>
+
+<!-- Glowing orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- Particle / grid canvas -->
+<canvas id="canvas-bg"></canvas>
+
+<!-- Main splash content -->
+<div class="splash" role="main">
+
+  <!-- Logo image -->
+  <div class="logo-wrap">
+    <img src="assets/images/logo.png"
+         alt="Site2Success — AI-First Tech Startup Bengaluru"
+         id="splash-logo">
+  </div>
+
+  <!-- Brand name text removed to avoid duplicate logo display -->
+
+  <!-- Typewriter tagline -->
+  <div class="tagline-wrap">
+    <p class="tagline">
+      <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+    </p>
+  </div>
+
+  <!-- Glowing progress bar -->
+  <div class="progress-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-track">
+      <div class="progress-fill"></div>
+      <div class="progress-glow"></div>
     </div>
+  </div>
 
-    <script>
-        // Redirect after animation (approx 2.5 seconds total)
-        setTimeout(() => {
-            window.location.href = 'pages/home.html';
-        }, 2500);
-    </script>
+</div>
+
+<script>
+/* ── Canvas: animated glowing grid ── */
+(function() {
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, t = 0;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    const spacing = 60;
+    const alpha = 0.045 + 0.015 * Math.sin(t * 0.008);
+
+    ctx.strokeStyle = `rgba(255,107,74,${alpha})`;
+    ctx.lineWidth = 0.6;
+
+    /* Vertical lines */
+    for(let x = 0; x <= W; x += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.stroke();
+    }
+    /* Horizontal lines */
+    for(let y = 0; y <= H; y += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+
+    /* Glowing intersection dots */
+    for(let x = 0; x <= W; x += spacing) {
+      for(let y = 0; y <= H; y += spacing) {
+        const pulse = 0.5 + 0.5 * Math.sin(t * 0.01 + (x + y) * 0.02);
+        ctx.beginPath();
+        ctx.arc(x, y, 1.2 * pulse, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,107,74,${0.12 * pulse})`;
+        ctx.fill();
+      }
+    }
+    t++;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── Typewriter effect ── */
+(function() {
+  const text = "AI-First Solutions for Indian Businesses";
+  const el = document.getElementById('typewriter-text');
+  let i = 0;
+  function type() {
+    if (i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, 48);
+    }
+  }
+  // Start after logo animation delay
+  setTimeout(type, 1500);
+})();
+
+/* ── Navigate with smooth fade ── */
+function navigateToHome() {
+  const overlay = document.getElementById('transition-overlay');
+  overlay.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = 'pages/home.html';
+  }, 600);
+}
+
+/* ── Auto-dismiss after 3s ── */
+setTimeout(navigateToHome, 3000);
+
+/* ── Click anywhere to skip ── */
+document.addEventListener('click', function(e) {
+  if (e.target.id !== 'skip-btn') navigateToHome();
+});
+</script>
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Site2Success",
+  "url": "https://site2success.in",
+  "logo": "https://site2success.in/assets/images/logo.png",
+  "description": "AI-first tech startup building agents, chatbots and automation for Indian SMBs. Incubated at Christ University, Bengaluru.",
+  "foundingDate": "2024-10",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bengaluru",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-6361446768",
+    "contactType": "customer service",
+    "email": "site2successs@gmail.com"
+  },
+  "sameAs": [
+    "https://linkedin.com/company/site2success",
+    "https://github.com/site2success",
+    "https://instagram.com/site2success"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Site2Success",
+  "url": "https://site2success.in",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://site2success.in/pages/services.html?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 </body>
-
 </html>
