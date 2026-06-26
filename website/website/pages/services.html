@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI &amp; Automation Services for Indian Businesses | Site2Success</title>
-    <meta name="description" content="Explore custom AI agents, WhatsApp automation, lead capture bots, and modern web application development services by Site2Success Bengaluru.">
-    <meta name="keywords" content="AI services, workflow automation, website development, WhatsApp chatbot, CRM integrations, Site2Success Bengaluru">
+    <title>Agentic AI &amp; Automation Services for Indian Businesses | Site2Success</title>
+    <meta name="description" content="Site2Success builds agentic AI agents, WhatsApp bots, workflow automation, and CRM automation for Indian SMBs. AI-first solutions from Bengaluru. Pure AI &amp; automation — not website or app development.">
+    <meta name="keywords" content="agentic AI, AI automation, Site2Success, WhatsApp AI agent, CRM automation, AI chatbot India, workflow automation Bengaluru, lead qualification AI, autonomous AI agents India">
     <link rel="canonical" href="https://site2success.online/pages/services.html">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="erB9FH8CbM0SuXc1aqRoS94toNrKQ-dM144Mg-gx-9o">
@@ -14,15 +14,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://site2success.online/pages/services.html">
-    <meta property="og:title" content="AI &amp; Automation Services for Indian Businesses | Site2Success">
-    <meta property="og:description" content="Custom AI Agents, CRM automation, and high-performance websites built for scale.">
+    <meta property="og:title" content="Agentic AI &amp; Automation Services for Indian Businesses | Site2Success">
+    <meta property="og:description" content="Custom Agentic AI Agents, WhatsApp automation, CRM automation, and intelligent workflow systems built for Indian SMBs.">
     <meta property="og:image" content="https://site2success.online/assets/images/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://site2success.online/pages/services.html">
-    <meta property="twitter:title" content="AI &amp; Automation Services for Indian Businesses | Site2Success">
-    <meta property="twitter:description" content="Custom AI Agents, CRM automation, and high-performance websites built for scale.">
+    <meta property="twitter:title" content="Agentic AI &amp; Automation Services for Indian Businesses | Site2Success">
+    <meta property="twitter:description" content="Custom Agentic AI Agents, WhatsApp automation, and intelligent workflow automation for Indian SMBs.">
     <meta property="twitter:image" content="https://site2success.online/assets/images/logo.png">
 
     <!-- Fonts -->
@@ -36,9 +36,14 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/pages.css">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
     <!-- Services Page Specific Styles -->
     <style>
-        /* Services Hero - EXACTLY AS FIRST IMAGE */
+        /* Services Hero */
         .services-hero {
             min-height: 70vh;
             display: flex;
@@ -187,7 +192,7 @@
             z-index: 1;
         }
 
-        /* ===== SCROLL-BASED SERVICES SECTION (Ohm.health style) ===== */
+        /* ===== SCROLL-BASED SERVICES SECTION ===== */
         .services-scroll-section {
             position: relative;
         }
@@ -195,7 +200,6 @@
         .services-scroll-container {
             position: relative;
             height: 600vh;
-            /* 6 services × 100vh each */
         }
 
         .services-fixed-wrapper {
@@ -219,7 +223,6 @@
             align-items: center;
         }
 
-        /* Image Side - Fixed Container */
         .service-image-container {
             position: relative;
             height: 500px;
@@ -251,7 +254,6 @@
             transform: scale(0.95);
         }
 
-        /* Content Side - Fixed Container */
         .service-content-container {
             position: relative;
             height: 400px;
@@ -280,7 +282,6 @@
             transform: translateY(-30px);
         }
 
-        /* Content Styling */
         .service-number {
             font-family: var(--font-display);
             font-size: 0.875rem;
@@ -322,7 +323,6 @@
             color: var(--coral);
         }
 
-        /* Progress Indicator */
         .scroll-progress {
             position: absolute;
             right: 2rem;
@@ -563,18 +563,6 @@
         }
 
         .btn-white {
-            background: white;
-            color: var(--navy-dark);
-            padding: 1rem 2rem;
-            border-radius: 100px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-white {
             background: var(--gradient-primary);
             color: white;
             padding: 1rem 2rem;
@@ -584,6 +572,7 @@
             align-items: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .btn-white:hover {
@@ -599,6 +588,7 @@
             border-radius: 100px;
             font-weight: 600;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .btn-outline-white:hover {
@@ -606,142 +596,72 @@
             border-color: var(--coral);
         }
 
+        /* Detailed Services Cards */
+        .services-detail { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .service-category { margin-bottom: 4rem; }
+        .category-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+        .category-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+        .category-dot.blue { background: #4A90D9; }
+        .category-dot.green { background: #28C840; }
+        .category-dot.coral { background: var(--coral); }
+        .category-header h2 { font-size: 1.5rem; font-weight: 800; color: var(--navy-dark); }
+        .category-header .count { font-size: 0.875rem; color: var(--gray-400); font-weight: 500; margin-left: 0.5rem; }
+        .service-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .svc-card { background: white; border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer; }
+        .svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); border-color: rgba(255,107,74,0.15); }
+        .svc-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.6rem; }
+        .svc-card p { font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; }
+        @media (max-width: 1024px) { .service-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .service-cards-grid { grid-template-columns: 1fr; } }
+
         /* Responsive */
         @media (max-width: 1024px) {
-            .services-hero-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .services-hero-visual {
-                height: 400px;
-                order: -1;
-            }
-
-            .services-scroll-layout {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                padding: 0 2rem;
-            }
-
-            .service-image-container {
-                height: 350px;
-                order: -1;
-            }
-
-            .service-content-container {
-                height: 300px;
-                text-align: center;
-            }
-
-            .service-tags {
-                justify-content: center;
-            }
-
-            .features-grid-modern {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .process-timeline {
-                flex-direction: column;
-                gap: 3rem;
-            }
-
-            .process-timeline::before {
-                display: none;
-            }
-
-            .scroll-progress {
-                right: 1rem;
-                gap: 0.75rem;
-            }
-
-            .progress-dot {
-                width: 6px;
-                height: 6px;
-            }
+            .services-hero-container { grid-template-columns: 1fr; gap: 3rem; }
+            .services-hero-visual { height: 400px; order: -1; }
+            .services-scroll-layout { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+            .service-image-container { height: 350px; order: -1; }
+            .service-content-container { height: 300px; text-align: center; }
+            .service-tags { justify-content: center; }
+            .features-grid-modern { grid-template-columns: repeat(2, 1fr); }
+            .process-timeline { flex-direction: column; gap: 3rem; }
+            .process-timeline::before { display: none; }
+            .scroll-progress { right: 1rem; gap: 0.75rem; }
+            .progress-dot { width: 6px; height: 6px; }
         }
 
         @media (max-width: 768px) {
-            .services-hero {
-                padding: 6rem 0 3rem;
-            }
-
-            .services-hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .features-grid-modern {
-                grid-template-columns: 1fr;
-            }
-
-            .service-image-container {
-                height: 280px;
-                border-radius: 24px;
-            }
-
-            .service-content h2 {
-                font-size: 1.75rem;
-            }
-
-            .service-content p {
-                font-size: 1rem;
-            }
-
-            .cta-section-modern {
-                margin: 2rem 1rem;
-                padding: 4rem 1.5rem;
-            }
+            .services-hero { padding: 6rem 0 3rem; }
+            .services-hero-stats { flex-direction: column; gap: 1.5rem; }
+            .features-grid-modern { grid-template-columns: 1fr; }
+            .service-image-container { height: 280px; border-radius: 24px; }
+            .service-content h2 { font-size: 1.75rem; }
+            .service-content p { font-size: 1rem; }
+            .cta-section-modern { margin: 2rem 1rem; padding: 4rem 1.5rem; }
         }
-    
-        /* ── Mobile Nav (shared) ── */
+
+        /* Mobile Nav */
         @media (max-width: 1024px) {
             .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 50%;
+                position: fixed; top: 80px; left: 50%;
                 transform: translateX(-50%) translateY(-20px);
-                width: calc(100% - 48px);
-                max-width: 400px;
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 1.5rem;
+                width: calc(100% - 48px); max-width: 400px;
+                flex-direction: column; gap: 0.5rem; padding: 1.5rem;
                 background: rgba(255,255,255,0.97);
                 backdrop-filter: blur(20px) saturate(180%);
                 -webkit-backdrop-filter: blur(20px) saturate(180%);
-                border-radius: 24px;
-                border: 1px solid rgba(255,255,255,0.6);
+                border-radius: 24px; border: 1px solid rgba(255,255,255,0.6);
                 box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-                transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-                z-index: 999;
+                opacity: 0; visibility: hidden; pointer-events: none;
+                transition: all 0.4s cubic-bezier(0.4,0,0.2,1); z-index: 999;
             }
-            .nav-links.mobile-open {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-                transform: translateX(-50%) translateY(0);
-            }
-            .nav-item {
-                width: 100%;
-                text-align: center;
-                padding: 0.875rem 1.25rem;
-            }
-            .menu-toggle {
-                display: flex !important;
-            }
+            .nav-links.mobile-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+            .nav-item { width: 100%; text-align: center; padding: 0.875rem 1.25rem; }
+            .menu-toggle { display: flex !important; }
             .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
             .menu-toggle.active span:nth-child(2) { opacity: 0; }
             .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
         }
-        </style>
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    </style>
 </head>
 
 <body>
@@ -768,7 +688,7 @@
         </div>
     </nav>
 
-    <!-- Services Hero Section - EXACTLY AS FIRST IMAGE -->
+    <!-- Services Hero Section -->
     <section class="services-hero">
         <div class="services-hero-container">
             <div class="services-hero-content">
@@ -779,10 +699,10 @@
                     <span>Our Expertise</span>
                 </div>
                 <h1 class="services-hero-title">
-                    Everything You Need to <span>Scale</span>
+                    Agentic AI &amp; <span>Automation</span> for Indian Businesses
                 </h1>
                 <p class="services-hero-description">
-                    AI agents, automation systems, and full-stack development — everything your business needs to scale smarter, not harder.
+                    Autonomous AI agents, intelligent chatbots, and end-to-end workflow automation — everything your business needs to scale smarter, not harder. No website or app dev. Pure AI.
                 </p>
                 <div class="services-hero-stats">
                     <div class="hero-stat">
@@ -803,7 +723,7 @@
                 <div class="hero-visual-decoration"></div>
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
                     alt="Team collaboration" class="hero-image-main">
-                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Digital solutions"
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="AI solutions"
                     class="hero-image-accent">
             </div>
         </div>
@@ -812,12 +732,11 @@
     <!-- Section Header -->
     <div class="section-header-center">
         <span class="section-label">Core Services</span>
-        <h2>Technology Solutions That Drive Results</h2>
-        <p>End-to-end digital transformation services designed to accelerate your business growth and operational
-            efficiency.</p>
+        <h2>AI &amp; Automation Solutions That Drive Results</h2>
+        <p>End-to-end agentic AI and automation services designed to accelerate your business growth and operational efficiency.</p>
     </div>
 
-    <!-- Scroll-Based Services Section (Ohm.health style) -->
+    <!-- Scroll-Based Services Section -->
     <section class="services-scroll-section">
         <div class="services-scroll-container" id="services-container">
             <div class="services-fixed-wrapper">
@@ -825,11 +744,11 @@
                     <!-- Image Side -->
                     <div class="service-image-container">
                         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=75"
-                            alt="AI Agents & Chatbots" class="service-image" data-index="0" loading="lazy">
+                            alt="AI Agents &amp; Chatbots" class="service-image" data-index="0" loading="lazy">
                         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=75"
-                            alt="Automation & Integrations" class="service-image" data-index="1" loading="lazy">
+                            alt="Automation &amp; Integrations" class="service-image" data-index="1" loading="lazy">
                         <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=75"
-                            alt="Agentic Websites &amp; Apps" class="service-image" data-index="2" loading="lazy">
+                            alt="AI-Powered Business Systems" class="service-image" data-index="2" loading="lazy">
                     </div>
 
                     <!-- Content Side -->
@@ -837,7 +756,7 @@
                         <!-- Service 1: AI Agents & Chatbots -->
                         <div class="service-content" data-index="0">
                             <div class="service-number">01 / 03</div>
-                            <h2>AI Agents & Chatbots</h2>
+                            <h2>AI Agents &amp; Chatbots</h2>
                             <p>Intelligent AI agents that work 24/7 — handling customer enquiries, capturing leads, booking appointments, and qualifying prospects automatically.</p>
                             <div class="service-tags">
                                 <span class="service-tag">WhatsApp AI Agent</span>
@@ -852,7 +771,7 @@
                         <!-- Service 2: Automation & Integrations -->
                         <div class="service-content" data-index="1">
                             <div class="service-number">02 / 03</div>
-                            <h2>Automation & Integrations</h2>
+                            <h2>Automation &amp; Integrations</h2>
                             <p>Connect your tools and eliminate manual work — automated lead follow-ups, CRM pipelines, multi-tool workflows, and payment reminders.</p>
                             <div class="service-tags">
                                 <span class="service-tag">Lead Follow-Up</span>
@@ -862,16 +781,16 @@
                             </div>
                         </div>
 
-                        <!-- Service 3: Agentic Websites &amp; Apps -->
+                        <!-- Service 3: AI-Powered Business Systems -->
                         <div class="service-content" data-index="2">
                             <div class="service-number">03 / 03</div>
-                            <h2>Agentic Websites &amp; Apps</h2>
-                            <p>Professional websites with AI chatbots built in, e-commerce stores, mobile apps, and custom admin dashboards — designed around your exact workflow.</p>
+                            <h2>AI-Powered Business Systems</h2>
+                            <p>Custom AI-integrated dashboards, admin portals, CRM systems, and AI-embedded business tools — engineered to make your entire operation smarter and more autonomous.</p>
                             <div class="service-tags">
-                                <span class="service-tag">Website + AI Chatbot</span>
-                                <span class="service-tag">E-Commerce</span>
-                                <span class="service-tag">Mobile Apps</span>
-                                <span class="service-tag">Admin Dashboards</span>
+                                <span class="service-tag">AI-Embedded Dashboards</span>
+                                <span class="service-tag">Intelligent CRM Portals</span>
+                                <span class="service-tag">Admin Automation</span>
+                                <span class="service-tag">Business Intelligence</span>
                             </div>
                         </div>
                     </div>
@@ -888,31 +807,12 @@
     </section>
 
     <!-- Detailed Services Section -->
-    <style>
-        .services-detail { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .service-category { margin-bottom: 4rem; }
-        .category-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
-        .category-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-        .category-dot.blue { background: #4A90D9; }
-        .category-dot.green { background: #28C840; }
-        .category-dot.coral { background: var(--coral); }
-        .category-header h2 { font-size: 1.5rem; font-weight: 800; color: var(--navy-dark); }
-        .category-header .count { font-size: 0.875rem; color: var(--gray-400); font-weight: 500; margin-left: 0.5rem; }
-        .service-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-        .svc-card { background: white; border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer; }
-        .svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); border-color: rgba(255,107,74,0.15); }
-        .svc-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.6rem; }
-        .svc-card p { font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; }
-        @media (max-width: 1024px) { .service-cards-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 640px) { .service-cards-grid { grid-template-columns: 1fr; } }
-    </style>
-
     <section class="services-detail">
         <!-- AI Agents & Chatbots -->
         <div class="service-category">
             <div class="category-header">
                 <div class="category-dot blue"></div>
-                <h2>AI Agents & Chatbots</h2>
+                <h2>AI Agents &amp; Chatbots</h2>
                 <span class="count">6 services</span>
             </div>
             <div class="service-cards-grid">
@@ -947,7 +847,7 @@
         <div class="service-category">
             <div class="category-header">
                 <div class="category-dot green"></div>
-                <h2>Automation & Integrations</h2>
+                <h2>Automation &amp; Integrations</h2>
                 <span class="count">4 services</span>
             </div>
             <div class="service-cards-grid">
@@ -964,35 +864,31 @@
                     <p>Connects your existing tools — forms, CRM, WhatsApp, email, calendar — into one seamless automated pipeline.</p>
                 </div>
                 <div class="svc-card" onclick="location.href='services/invoice-payment-reminders.html'">
-                    <h3>Invoice & Payment Reminders</h3>
+                    <h3>Invoice &amp; Payment Reminders</h3>
                     <p>Automatically follows up on pending payments via WhatsApp or email, reducing delays without manual chasing.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Agentic Websites &amp; Apps -->
+        <!-- AI-Powered Business Systems -->
         <div class="service-category">
             <div class="category-header">
                 <div class="category-dot coral"></div>
-                <h2>Agentic Websites &amp; Apps</h2>
-                <span class="count">4 services</span>
+                <h2>AI-Powered Business Systems</h2>
+                <span class="count">3 services</span>
             </div>
             <div class="service-cards-grid">
                 <div class="svc-card" onclick="location.href='services/business-website-chatbot.html'">
-                    <h3>Business Website + AI Chatbot</h3>
-                    <p>A professional website built with an AI chatbot embedded from day one — designed to generate leads, not just look good.</p>
+                    <h3>AI-Integrated Business Website</h3>
+                    <p>A business website architected around an AI agent from the ground up — captures leads, qualifies prospects, and books appointments automatically, 24/7.</p>
                 </div>
                 <div class="svc-card" onclick="location.href='services/ecommerce-store.html'">
-                    <h3>E-Commerce Store</h3>
-                    <p>A complete online store with product catalogue, payment gateway, and order tracking, built for D2C brands and retailers.</p>
-                </div>
-                <div class="svc-card" onclick="location.href='services/mobile-app-development.html'">
-                    <h3>Mobile App Development</h3>
-                    <p>Custom Android and iOS apps for businesses that need a customer-facing product or an internal operations tool.</p>
+                    <h3>AI-Powered E-Commerce Platform</h3>
+                    <p>An intelligent online store with AI-driven product recommendations, automated cart recovery, and smart customer support built in from day one.</p>
                 </div>
                 <div class="svc-card" onclick="location.href='services/admin-dashboard-portals.html'">
-                    <h3>Admin Dashboard & Portals</h3>
-                    <p>Custom-built dashboards for managing orders, clients, bookings, or teams — designed around your exact workflow.</p>
+                    <h3>AI Admin Dashboard &amp; Business Portal</h3>
+                    <p>Custom-built intelligent dashboards for managing orders, clients, bookings, or teams — with AI insights and automation built into every workflow.</p>
                 </div>
             </div>
         </div>
@@ -1033,11 +929,11 @@
     <!-- CTA Section -->
     <section class="cta-section-modern">
         <div class="cta-content">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Let's discuss how we can help you build scalable systems that drive growth.</p>
+            <h2>Ready to Transform Your Business with AI?</h2>
+            <p>Let's discuss how we can deploy agentic AI to scale your business on autopilot.</p>
             <div class="cta-buttons">
                 <a href="contact.html" class="btn-white">
-                    Start Your Project
+                    Start Your AI Project
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
@@ -1065,12 +961,10 @@
             let currentIndex = 0;
             let isScrolling = false;
 
-            // Initialize first service
             function init() {
                 updateService(0);
             }
 
-            // Update active service based on scroll progress
             function updateService(index) {
                 if (index === currentIndex && index !== 0) return;
                 if (index < 0) index = 0;
@@ -1078,7 +972,6 @@
 
                 currentIndex = index;
 
-                // Update images
                 images.forEach((img, i) => {
                     img.classList.remove('active', 'prev');
                     if (i === index) {
@@ -1088,7 +981,6 @@
                     }
                 });
 
-                // Update content
                 contents.forEach((content, i) => {
                     content.classList.remove('active', 'prev');
                     if (i === index) {
@@ -1098,30 +990,25 @@
                     }
                 });
 
-                // Update dots
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === index);
                 });
             }
 
-            // Calculate current service based on scroll position
             function handleScroll() {
                 const rect = container.getBoundingClientRect();
                 const containerTop = rect.top;
                 const containerHeight = rect.height;
                 const windowHeight = window.innerHeight;
 
-                // Only process when container is in view
                 if (containerTop > windowHeight || containerTop + containerHeight < 0) {
                     return;
                 }
 
-                // Calculate scroll progress within container (0 to 1)
                 const scrollProgress = Math.max(0, Math.min(1,
                     (-containerTop + windowHeight * 0.3) / (containerHeight - windowHeight)
                 ));
 
-                // Determine current service index
                 const newIndex = Math.min(
                     totalServices - 1,
                     Math.floor(scrollProgress * totalServices)
@@ -1130,7 +1017,6 @@
                 updateService(newIndex);
             }
 
-            // Smooth scroll handling with requestAnimationFrame
             function onScroll() {
                 if (!isScrolling) {
                     window.requestAnimationFrame(() => {
@@ -1141,16 +1027,9 @@
                 }
             }
 
-            // Initialize
             init();
-
-            // Listen for scroll events
             window.addEventListener('scroll', onScroll, { passive: true });
-
-            // Also check on resize
             window.addEventListener('resize', handleScroll);
-
-            // Initial check
             handleScroll();
         })();
     </script>
@@ -1160,7 +1039,7 @@
         <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto 3rem;">
             <div>
                 <img src="../assets/images/logo.png" alt="Site2Success Logo" style="height:44px;width:auto;border-radius:0;filter:brightness(1.2);margin-bottom:1rem;opacity:1;">
-                <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);max-width:280px;">AI-first tech startup building AI agents, chatbots, and automation for Indian SMBs.</p>
+                <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);max-width:280px;">AI-first tech startup building agentic AI agents, chatbots, and automation for Indian SMBs.</p>
             </div>
             <div>
                 <h4 style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.4);margin-bottom:1.25rem;">Pages</h4>
@@ -1194,8 +1073,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="../assets/js/main.js"></script>
+    <!-- Mobile Nav Script -->
     <script>
     (function() {
         var toggle = document.getElementById('menu-toggle');
@@ -1245,7 +1123,7 @@
       "name": "Site2Success",
       "url": "https://site2success.online",
       "logo": "https://site2success.online/assets/images/logo.png",
-      "description": "AI-first tech startup building agents, chatbots and automation for Indian SMBs. Incubated at Christ University, Bengaluru.",
+      "description": "AI-first agentic tech startup building autonomous AI agents, chatbots and automation for Indian SMBs. Incubated at Christ University, Bengaluru.",
       "foundingDate": "2024-10",
       "founders": [
         {"@type":"Person","name":"Rahul R"},
@@ -1268,6 +1146,152 @@
         "https://github.com/site2success",
         "https://instagram.com/site2success"
       ]
+    }
+    </script>
+
+    <!-- AEO: ServiceList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Site2Success Agentic AI & Automation Services",
+      "description": "Site2Success is an agentic AI company offering autonomous AI agents, WhatsApp automation, CRM automation, and intelligent workflow systems for Indian SMBs.",
+      "itemListElement": [
+        {
+          "@type": "ListItem", "position": 1,
+          "item": {
+            "@type": "Service", "name": "WhatsApp AI Agent",
+            "description": "An autonomous AI agent that automatically replies to customer enquiries, captures leads, and answers FAQs on your existing WhatsApp number, 24/7.",
+            "provider": {"@type": "Organization", "name": "Site2Success"},
+            "areaServed": "India", "serviceType": "Agentic AI"
+          }
+        },
+        {
+          "@type": "ListItem", "position": 2,
+          "item": {
+            "@type": "Service", "name": "AI Lead Capture Bot",
+            "description": "Engages website visitors instantly, qualifies them, and collects their details — no forms, no drop-offs.",
+            "provider": {"@type": "Organization", "name": "Site2Success"},
+            "areaServed": "India", "serviceType": "Agentic AI"
+          }
+        },
+        {
+          "@type": "ListItem", "position": 3,
+          "item": {
+            "@type": "Service", "name": "CRM Automation",
+            "description": "Auto-logs leads, updates deal stages, and alerts your sales team. Works with Notion, HubSpot, Zoho, and Google Sheets.",
+            "provider": {"@type": "Organization", "name": "Site2Success"},
+            "areaServed": "India", "serviceType": "Business Automation"
+          }
+        },
+        {
+          "@type": "ListItem", "position": 4,
+          "item": {
+            "@type": "Service", "name": "Multi-Tool Workflow Automation",
+            "description": "Connects your existing tools — forms, CRM, WhatsApp, email, calendar — into one seamless automated pipeline.",
+            "provider": {"@type": "Organization", "name": "Site2Success"},
+            "areaServed": "India", "serviceType": "Workflow Automation"
+          }
+        },
+        {
+          "@type": "ListItem", "position": 5,
+          "item": {
+            "@type": "Service", "name": "AI Customer Support Agent",
+            "description": "Resolves your most common support questions instantly and escalates to a human only when needed.",
+            "provider": {"@type": "Organization", "name": "Site2Success"},
+            "areaServed": "India", "serviceType": "Agentic AI"
+          }
+        },
+        {
+          "@type": "ListItem", "position": 6,
+          "item": {
+            "@type": "Service", "name": "AI Sales Qualification Agent",
+            "description": "Scores incoming leads and tells your sales team exactly who to prioritise and call first.",
+            "provider": {"@type": "Organization", "name": "Site2Success"},
+            "areaServed": "India", "serviceType": "Agentic AI"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- AEO: FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Site2Success do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Site2Success is an agentic AI company based in Bengaluru, India. We build autonomous AI agents, WhatsApp automation bots, CRM automation, lead qualification AI, and intelligent workflow systems for Indian SMBs. Our primary focus is AI and automation — not generic website or mobile app development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is agentic AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Agentic AI refers to autonomous AI systems that can reason, plan, and execute multi-step tasks without human intervention. Site2Success builds agentic AI solutions that autonomously handle customer interactions, qualify leads, book appointments, send follow-ups, and orchestrate complex business workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Site2Success a website development company?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Site2Success is an AI-first agentic automation company, not a website development company. Our primary services are agentic AI agents, WhatsApp AI automation, CRM automation, lead qualification AI, and autonomous business workflow systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What AI automation services does Site2Success offer for Indian businesses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Site2Success offers: 1) WhatsApp AI Agents, 2) Lead Capture Bots, 3) AI Appointment Booking Agents, 4) AI Customer Support Agents, 5) AI Sales Qualification Agents, 6) Internal Knowledge Bots, 7) CRM Automation, 8) Lead Follow-Up Automation, and 9) Multi-Tool Workflow Automation — all designed specifically for Indian SMBs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Site2Success located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Site2Success is headquartered in Bengaluru, Karnataka, India and is incubated at Christ University. Contact: +91 6361446768, site2successs@gmail.com."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- GEO: Article/Speakable Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Site2Success — Agentic AI & Automation Company for Indian Businesses",
+      "description": "Site2Success is a Bengaluru-based agentic AI startup that builds autonomous AI agents, WhatsApp automation bots, CRM automation pipelines, and intelligent workflow systems exclusively for Indian SMBs. Founded in October 2024 by Rahul R and L Dhanush Raj, incubated at Christ University. Primary services: agentic AI, workflow automation, WhatsApp AI agent, CRM automation, lead qualification AI. NOT a website or mobile app development company.",
+      "author": {"@type": "Organization", "name": "Site2Success"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Site2Success",
+        "logo": {"@type": "ImageObject", "url": "https://site2success.online/assets/images/logo.png"}
+      },
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://site2success.online/pages/services.html"},
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".services-hero-description", ".service-content.active p"]
+      },
+      "about": [
+        {"@type": "Thing", "name": "Agentic AI"},
+        {"@type": "Thing", "name": "AI Automation"},
+        {"@type": "Thing", "name": "WhatsApp AI Agent"},
+        {"@type": "Thing", "name": "Workflow Automation India"},
+        {"@type": "Thing", "name": "CRM Automation"},
+        {"@type": "Thing", "name": "Lead Qualification AI"}
+      ],
+      "keywords": "agentic AI, AI automation India, Site2Success, WhatsApp AI bot, CRM automation Bengaluru, autonomous AI agents, lead qualification AI, workflow automation SMB"
     }
     </script>
 </body>
